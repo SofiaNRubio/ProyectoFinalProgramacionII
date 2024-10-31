@@ -1,0 +1,18 @@
+:root {
+    --fuente-titulo: 'Pacifico', cursive;
+    --fuente-body: 'Montserrat', sans-serif;
+    --lila-easily: #9249bc;
+    --verde-easily: #2e8b57;
+}
+
+h1 {
+    font-family: var(--fuente-titulo);
+    color: var(--verde-easily);
+}
+h2 {
+    font-family: var(--fuente-titulo);
+}
+
+.centrar {
+    text-align: center;
+}
