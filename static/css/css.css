@@ -1,129 +1,169 @@
+/* Estilos básicos */
 body {
     background-color: #cadffb;
+    font-family: 'Krub', sans-serif;
+    margin: 0;
+    padding: 0;
 }
+
+/* Variables de color */
 :root {
     --fuente-titulo: 'Pacifico', cursive;
-    --fuente-body: 'Montserrat', sans-serif;
+    --fuente-principal: 'Krub', sans-serif;
     --lila-easily: #9249bc;
     --verde-easily: #2e8b57;
 }
 
-h1 {
+/* Estilo de encabezado */
+h1, h2 {
     font-family: var(--fuente-titulo);
     color: var(--verde-easily);
 }
-h2 {
-    font-family: var(--fuente-titulo);
+
+/* Centrado */
+.center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.centrar {
+/* Navbar superior */
+.navbar {
+    background-color: #333;
+    padding: 1rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar ul li {
+    margin: 0 15px;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Hero con video de fondo */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    color: white;
 }
 
-.tabla{
+#background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.hero-text h1 {
+    font-size: 3em;
+    margin: 0;
+}
+
+.hero-text h2 {
+    font-size: 1.5em;
+    margin-top: 0.5em;
+}
+
+/* Tabla */
+.tabla {
     margin: 50px;
+    display: grid;
 }
 
-.th {
-    border: 1px black solid;
+.no-border {
+    border: none;
+}
+
+.td, .th {
+    border: 1px solid black;
     padding: 10px;
 }
 
-.verde {
-    position: relative;
-    border: none;
-    background: transparent;
-    padding: 0;
+table {
+    border-collapse: collapse;
+}
+
+/* Botones */
+.btn {
+    border-radius: 5px;
+    padding: 10px;
     cursor: pointer;
-    outline-offset: 4px;
-    transition: filter 250ms;
-    user-select: none;
-    touch-action: manipulation;
-    width: 100px;
-    margin-left: 50px;
+    border: none;
+    margin: 10px;
+    font-family: var(--fuente-principal);
+    font-weight: 900;
+    background-color: #84b6f4;
+    color: #FFF;
 }
 
-.shadow {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 12px;
-    background: hsl(0deg 0% 0% / 0.25);
-    will-change: transform;
-    transform: translateY(2px);
-    transition: transform
-    600ms
-    cubic-bezier(.3, .7, .4, 1);
+.btn_green:hover {
+    background-color: #77dd77;
 }
 
-.edge {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 12px;
-    background: linear-gradient(
-    to left,
-    hsl(340deg 100% 16%) 0%,
-    hsl(340deg 100% 32%) 8%,
-    hsl(340deg 100% 32%) 92%,
-    hsl(340deg 100% 16%) 100%
-    );
+.btn_red:hover {
+    background-color: #ff6961;
 }
 
-.front {
-    display: block;
-    position: relative;
-    padding: 12px 27px;
-    border-radius: 12px;
-    font-size: 1.1rem;
+.btn_orange:hover {
+    background-color: #ffca99;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
     color: white;
-    background: hsl(120,61%,67%)    ;
-    will-change: transform;
-    transform: translateY(-4px);
-    transition: transform
-    600ms
-    cubic-bezier(.3, .7, .4, 1);
-   }
-   
-   button:hover {
-    filter: brightness(110%);
-   }
-   
-   button:hover .front {
-    transform: translateY(-6px);
-    transition: transform
-    250ms
-    cubic-bezier(.3, .7, .4, 1.5);
-   }
-   
-   button:active .front {
-    transform: translateY(-2px);
-    transition: transform 34ms;
-   }
-   
-   button:hover .shadow {
-    transform: translateY(4px);
-    transition: transform
-    250ms
-    cubic-bezier(.3, .7, .4, 1.5);
-   }
-   
-   button:active .shadow {
-    transform: translateY(1px);
-    transition: transform 34ms;
-   }
-   
-    button:focus:not(:focus-visible) {
-    outline: none;
-}
-.verde {
-    
+    padding: 20px;
+    text-align: center;
 }
 
-.rojo {
-    
+footer p {
+    margin: 0 0 10px 0;
+    font-weight: bold;
+}
+
+.footer-nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-nav ul li {
+    margin: 0 15px;
+}
+
+.footer-nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-nav ul li a:hover {
+    text-decoration: underline;
 }

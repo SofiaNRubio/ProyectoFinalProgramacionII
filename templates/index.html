@@ -1,37 +1,80 @@
-<DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
-    <head>
-        <title>Easily-Store</title>
-        <link rel="stylesheet" type="text/css" href="/static/css/css.css">
-        <link rel="stylesheet" type="text/css" href="/static/css/normalize.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-        <meta charset="UTF-8">
-    </head>
-    <body>
-        <h1 class="centrar">Easily-Store</h1>
-        <h2 class="centrar">La mejor tienda de ropa.</h2>
-        <div class="tabla">
-            <table>
-                <tr>
-                    <th class="th">Prenda</th>
-                    <th class="th">Talla</th>
-                    <th class="th">Cantidad</th>
-                </tr>
-                <tr>
-                    <th class="th">Prenda</th>
-                    <th class="th">Talla</th>
-                    <th class="th">Cantidad</th>
-                    <th><button class="verde">
-                        <span class="shadow"></span>
-                        <span class="edge"></span>
-                        <span class="front text">Editar
-                        </span>
-                        </button></th>
-                    <th>Eliminar</th>
-                </tr>
-            </table>
+<head>
+    <title>Easily-Store</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/css.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/normalize.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Krub:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+<body>
+    <!-- Navbar superior con hero -->
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#categorias">Categorías</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#carrito">Carrito</a></li>
+            </ul>
+        </nav>
+        <div class="hero">
+            <video autoplay muted loop id="background-video">
+                <source src="/static/video/1006-142621176_small.mp4" type="video/mp4">
+                Tu navegador no soporta videos HTML5.
+            </video>
+            <div class="hero-text">
+                <h1 class="center-content">Easily-Store</h1>
+                <h2 class="center-content">La mejor tienda de ropa.</h2>
+            </div>
         </div>
-    </body>
+    </header>
+
+    <!-- Contenido principal -->
+    <main>
+        <div class="tabla">
+            <div class="center-content">
+                <table>
+                    <tr>
+                        <td colspan="4" class="no-border center-content">
+                            <button class="btn btn_green">Agregar prenda</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="th">Prenda</th>
+                        <th class="th">Talla</th>
+                        <th class="th">Cantidad</th>
+                        <th class="th"></th>
+                    </tr>
+                    <tr>
+                        <td class="td">Prenda</td>
+                        <td class="td">Talla</td>
+                        <td class="td">Cantidad</td>
+                        <td class="center-content">
+                            <button class="btn btn_orange">Editar</button>
+                            <button class="btn btn_red">Eliminar</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>Easily-Store es parte de Easily</p>
+        <nav class="footer-nav">
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#trabaja">Trabaja con nosotros</a></li>
+            </ul>
+        </nav>
+    </footer>
+</body>
 </html>
