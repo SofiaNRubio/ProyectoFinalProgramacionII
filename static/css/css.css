@@ -167,3 +167,12 @@ footer p {
 .footer-nav ul li a:hover {
     text-decoration: underline;
 }
+.fuente_Pacifico {
+    font-family: 'Pacifico', cursive;
+}
+.verde {
+    color: var(--verde-easily);
+}
+.lila {
+    color: var(--lila-easily);
+}
