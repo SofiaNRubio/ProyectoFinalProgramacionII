@@ -1,12 +1,13 @@
-/* Estilos básicos */
 body {
     background-color: #cadffb;
     font-family: 'Krub', sans-serif;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-/* Variables de color */
 :root {
     --fuente-titulo: 'Pacifico', cursive;
     --fuente-principal: 'Krub', sans-serif;
@@ -14,8 +15,7 @@ body {
     --verde-easily: #2e8b57;
 }
 
-/* Estilo de encabezado */
-h1{
+h1 {
     font-family: var(--fuente-titulo);
     font-size: 100px;
     color: var(--verde-easily);
@@ -25,14 +25,12 @@ h1{
     color: #FFFFFF;
 }
 
-/* Centrado */
 .center-content {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* Navbar superior */
 .navbar {
     background-color: #333;
     padding: 1rem;
@@ -64,15 +62,14 @@ h1{
     text-decoration: underline;
 }
 
-/* Hero con video de fondo */
 .hero {
-    position: relative; /* Cambiado a relative */
+    position: relative;
     height: 50vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    overflow: hidden; /* Evita desbordes */
+    overflow: hidden;
 }
 
 #background-video {
@@ -91,19 +88,17 @@ h1{
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Ajusta el color y la opacidad aquí */
+    background: rgba(0, 0, 0, 0.5);
     z-index: 2;
 }
 
 .content {
-    position: relative; /* Asegura que el texto esté por encima de la superposición */
+    position: relative;
     z-index: 3;
-    color: white; /* Color del texto */
+    color: white;
     font-size: 30px;
 }
 
-
-/* Tabla */
 .tabla {
     margin: 50px;
     display: grid;
@@ -122,7 +117,6 @@ table {
     border-collapse: collapse;
 }
 
-/* Botones */
 .btn {
     border-radius: 5px;
     padding: 10px;
@@ -147,12 +141,16 @@ table {
     background-color: #ffca99;
 }
 
-/* Footer */
+main {
+    flex-grow: 1;
+}
+
 footer {
     background-color: #333;
     color: white;
     padding: 20px;
     text-align: center;
+    margin-top: auto;
 }
 
 footer p {
