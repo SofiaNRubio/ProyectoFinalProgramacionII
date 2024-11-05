@@ -1,28 +1,59 @@
-<<<<<<< HEAD
-from flask import Flask
-from routes import configure_routes
+#from flask import Flask, request, render_template
+
+#app = Flask(__name__)
+
+#@app.route("/")
+#def index():
+#    return render_template("index.html")
+
+#@app.route("/process", methods=["POST"])
+#def process():
+#    prenda=request.form.get("prenda")
+#    return "La prenda agregada es %s"  % (prenda)
+
+#sql_query_insert = "INSERT INTO Stock (prenda) VALUES (%s)"
+#values = (prenda)
+#cursor.execute(sql_query_insert, values)
+
+    # Confirmar cambios en la base de datos
+#mydb.commit()
+
+from flask import Flask, request, render_template
+import mysql.connector
 
 app = Flask(__name__)
 
-if __name__ == '__main__':
-=======
-from flask import Flask,  render_template
-
-app = Flask(__name__)
+# Configura la conexión a la base de datos
+mydb = mysql.connector.connect(
+    host="localhost",
+    user="juli",
+    password="45875403",
+    database="easily_store"
+)
+cursor = mydb.cursor()
 
 @app.route("/")
-def home():
+def index():
     return render_template("index.html")
 
-@app.route("/hello")
-def hello():
-    return "Hola Mundo"
+@app.route("/process", methods=["POST"])
+def process():
+    # Obtener el valor de 'prenda' del formulario
+    prenda = request.form.get("prenda")
+    
+    # Comprobar si 'prenda' tiene un valor
+    if prenda:
+        # Insertar el valor en la base de datos
+        sql_query_insert = "INSERT INTO Stock (prenda) VALUES (%s)"
+        values = (prenda,)
+        cursor.execute(sql_query_insert, values)
 
-@app.route("/hello/<username>")
-def show_name(username):
-    return render_template("index.html", username=username)
+        # Confirmar cambios en la base de datos
+        mydb.commit()
 
+        return f"La prenda agregada es: {prenda}"
+    else:
+        return "No se ha proporcionado ninguna prenda."
 
-if __name__ == "__main__":
->>>>>>> f21b19b (El Eze se la come)
+if __name__ == '__main__':
     app.run(debug=True)

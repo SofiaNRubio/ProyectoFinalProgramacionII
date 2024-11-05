@@ -7,8 +7,8 @@ def create_connection():
         connection = mysql.connector.connect(
             host='localhost',
             database='easily_store',
-            user='nico',
-            password='ab12'
+            user='juli',
+            password='45875403'
         )
         print("Conexión exitosa a la base de datos MySQL")
     except Error as err:

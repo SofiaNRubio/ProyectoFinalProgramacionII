@@ -34,15 +34,22 @@ q<!DOCTYPE html>
             </div>
         </div>
     </header>
+    <body>
+        <form method="POST" action="/process">
+            <label for="prenda">Agregar una prenda: </label>
+            <input type="text" id="prenda" name="prenda"><br>
+            <input type="submit" value="Agregar" class="submit-button">
+        </form>
+    </body>
     <main>
         <div class="tabla">
             <div class="center-content">
                 <table>
-                    <tr>
+                    <!--<tr>
                         <td colspan="4" class="no-border center-content">
                             <button class="btn btn_green">Agregar prenda</button>
                         </td>
-                    </tr>
+                    </tr> -->
                     <tr>
                         <th class="th">Prenda</th>
                         <th class="th">Talla</th>
