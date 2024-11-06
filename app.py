@@ -47,7 +47,7 @@ def process():
     # Comprobar si 'prenda' tiene un valor
     if producto:
         # Insertar el valor en la base de datos
-        sql_query_insert = "INSERT INTO Stock (producto, cantidad, precio, talle, colores) VALUES (%s, %s, %s, %s,%s)"
+        sql_query_insert = "INSERT INTO Stock (producto, cantidad, precio, talle, colores) VALUES (%s, %d, %d, %s,%s)"
         values = (producto, cantidad, precio, talle, colores)
         cursor.execute(sql_query_insert, values)
 
