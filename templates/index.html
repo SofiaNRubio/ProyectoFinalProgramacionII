@@ -35,9 +35,17 @@ q<!DOCTYPE html>
         </div>
     </header>
     <body>
-        <form method="POST" action="/process">
-            <label for="prenda">Agregar una prenda: </label>
-            <input type="text" id="prenda" name="prenda"><br>
+        <form action="/process" method="POST">
+            <label for="producto">Agregar una prenda: </label>
+            <input type="text" id="producto" name="producto"><br>
+            <label for="cantidad">Cantidad: </label>
+            <input type="int" id="cantidad" name="cantidad"><br>
+            <label for="precio">Precio: </label>
+            <input type="int" id="precio" name="precio"><br>
+            <label for="talle">Talle:  </label>
+            <input type="text" id="talle" name="talle"><br>
+            <label for="colores">Color/es:  </label>
+            <input type="text" id="colores" name="colores"><br>
             <input type="submit" value="Agregar" class="submit-button">
         </form>
     </body>
