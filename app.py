@@ -54,9 +54,9 @@ def process():
         # Confirmar cambios en la base de datos
         mydb.commit()
 
-        return f"La prenda agregada es: {producto},{cantidad}, {precio}, {talle}, {colores}"
-    else:
-        return "No se ha proporcionado ninguna prenda."
+        #return f"La prenda agregada es: {producto},{cantidad}, {precio}, {talle}, {colores}"
+    #else:
+        #return "No se ha proporcionado ninguna prenda."
 
 if __name__ == '__main__':
     app.run(debug=True)
