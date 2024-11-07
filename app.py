@@ -22,6 +22,7 @@ from flask import Flask, request, render_template
 import mysql.connector
 
 app = Flask(__name__)
+app.secret_key = "jhfgk"
 
 # Configura la conexión a la base de datos
 mydb = mysql.connector.connect(
@@ -47,16 +48,16 @@ def process():
     # Comprobar si 'prenda' tiene un valor
     if producto:
         # Insertar el valor en la base de datos
-        sql_query_insert = "INSERT INTO Stock (producto, cantidad, precio, talle, colores) VALUES (%s, %d, %d, %s,%s)"
+        sql_query_insert = "INSERT INTO Stock (producto, cantidad, precio, talle, colores) VALUES (%s, %s, %s, %s,%s)"
         values = (producto, cantidad, precio, talle, colores)
         cursor.execute(sql_query_insert, values)
 
         # Confirmar cambios en la base de datos
         mydb.commit()
 
-        #return f"La prenda agregada es: {producto},{cantidad}, {precio}, {talle}, {colores}"
-    #else:
-        #return "No se ha proporcionado ninguna prenda."
+        return f"La prenda agregada es: {producto},{cantidad}, {precio}, {talle}, {colores}"
+    else:
+        return "No se ha proporcionado ninguna prenda..."
 
 if __name__ == '__main__':
     app.run(debug=True)
