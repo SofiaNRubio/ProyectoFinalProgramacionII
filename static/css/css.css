@@ -101,6 +101,10 @@ h1 {
     font-size: 30px;
 }
 
+.palabras{
+    font-family: 'Courier New', Courier, monospace;
+}
+
 .tabla {
     margin: 50px;
     display: grid;
