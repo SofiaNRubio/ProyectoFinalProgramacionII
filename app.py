@@ -72,7 +72,7 @@ def edit(id):
     return render_template('editar_formulario.html', prenda=prenda)
 
 # Ruta para procesar los cambios y actualizar la base de datos
-@app.route('/actualizar_prenda/<int:id>', methods=['POST'])
+@app.route('/edit/<int:id>', methods=['POST'])
 def actualizar_prenda(id):
     if request.method == 'POST':
         # Recibe los datos modificados del formulario
@@ -101,19 +101,15 @@ def actualizar_prenda(id):
             
     mydb.commit()
 
-@app.route('/mostrar', methods=['POST'])
+@app.route('/mostrar', methods=['GET', 'POST'])
 def mostrar_stock():
-    #conexion = mysql.connector.connect(**db_config)
-    #cursor = conexion.cursor(dictionary=True)
-    cursor.execute("SELECT * FROM stock")
-    datos_stock = cursor.fetchall()
+    cursor = mydb.cursor(dictionary=True)
+    cursor.execute("SELECT * FROM Stock")
+    datos_prenda = cursor.fetchall()
     cursor.close()
-    cursor.conexion.close()
-    return render_template('index.html', stock=datos_stock)
-    
-    mydb.commit()
+    print(datos_prenda)
+    return render_template('index.html', Stock=datos_prenda)
 
 
-    
 if __name__ == '__main__':
     app.run(debug=True)

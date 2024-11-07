@@ -55,11 +55,11 @@ q<!DOCTYPE html>
             <input type="submit" value="Agregar" class="submit-button">
         </form>
 
-        <form action="/edit" method="POST">
+        <form action="/edit/<int:id>" method="POST">
             <label for="producto">Editar una prenda: </label>
             <input type="submit" value="Editar" class="submit-button">
         </form>
-        <form action="/mostrar" method="POST">
+        <form action="/mostrar" method='POST'>
             <input type="submit" value="Ver Stock" class="submit-button">
         </form>
     </body>
@@ -67,27 +67,25 @@ q<!DOCTYPE html>
         <div class="tabla">
             <div class="center-content">
                 <table>
-                    <!--<tr>
-                        <td colspan="4" class="no-border center-content">
-                            <button class="btn btn_green">Agregar prenda</button>
-                        </td>
-                    </tr> -->
                     <tr>
+                        <th class="th">Id</th>
                         <th class="th">Prenda</th>
-                        <th class="th">Talla</th>
                         <th class="th">Cantidad</th>
-                        <th class="th"></th>
+                        <th class="th">Talle</th>
+                        <th class="th">Colores</th>
+                        <th class="th">Precio</th>
                     </tr>
+                    {% for prenda in Stock %}
                     <tr>
-                        <td class="td">Prenda</td>
-                        <td class="td">Talla</td>
-                        <td class="td">Cantidad</td>
-                        <td class="center-content">
-                            <button class="btn btn_orange">Editar</button>
-                            <button class="btn btn_red">Eliminar</button>
-                        </td>
+                        <td>{{ prenda.id }}</td>
+                        <td>{{ prenda.producto }}</td>
+                        <td>{{ prenda.cantidad }}</td>
+                        <td>{{ prenda.talle }}</td>
+                        <td>{{ prenda.colores }}</td>
+                        <td>{{ prenda.precio }}</td>
                     </tr>
-                </table>
+                    {% endfor %}
+                </table>                
             </div>
         </div>
     </main>
