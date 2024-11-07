@@ -59,5 +59,32 @@ def process():
     else:
         return "No se ha proporcionado ninguna prenda..."
 
+@app.route("/edit", methods=["GET", "POST"])
+def edit():
+    if request.method == "POST":
+        # Obtener los valores del formulario
+        id_prenda = request.form.get("id_prenda", '')
+        producto = request.form.get("producto", '')
+        cantidad=request.form.get("cantidad", '')
+        precio=request.form.get("precio", '')
+        talle=request.form.get("talle", '')
+        colores=request.form.get("colores", '')
+        # Comprobar si 'id_prenda' tiene un valor
+        if id_prenda:
+            # Actualizar los valores en la base de datos
+            sql_query = "SELECT * FROM" + sql_query + " WHERE" 
+    mydb.commit()
+
+@app.route('/mostrar', methods=['POST'])
+def mostrar_stock():
+    #conexion = mysql.connector.connect(**db_config)
+    #cursor = conexion.cursor(dictionary=True)
+    cursor.execute("SELECT * FROM stock")
+    datos_stock = cursor.fetchall()
+    cursor.close()
+    conexion.close()
+    return render_template('index.html', stock=datos_stock)
+
+    
 if __name__ == '__main__':
     app.run(debug=True)
