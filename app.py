@@ -18,7 +18,7 @@
     # Confirmar cambios en la base de datos
 #mydb.commit()
 
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, redirect, url_for
 import mysql.connector
 
 app = Flask(__name__)
@@ -110,6 +110,34 @@ def mostrar_stock():
     print(datos_prenda)
     return render_template('index.html', Stock=datos_prenda)
 
+@app.route('/eliminar', methods=['POST'])
+def eliminar():
+    id = request.form.get('id')
+    
+    # Usa la conexión ya existente sin llamarla como función
+    cursor = mydb.cursor()
+
+    # Validación y ejecución de la eliminación
+    if id:
+        cursor.execute("DELETE FROM Stock WHERE id = %s", (id,))
+        mydb.commit()
+    
+    cursor.close()
+    return redirect(url_for('index'))
+
+"""
+@app.route('/eliminar', methods=['POST'])
+def eliminar():
+    id = request.form.get('id')  # Obtenemos el valor del campo "id" en el formulario
+    if id:  # Verificamos que el ID no esté vacío
+        conexion = mysql.connector.connect(mydb)
+        cursor = conexion.cursor()
+        cursor.execute("DELETE FROM stock WHERE id = %s", (id,))
+        conexion.commit()
+        cursor.close()
+        conexion.close()
+    return redirect(url_for('index'))
+"""
 
 if __name__ == '__main__':
     app.run(debug=True)

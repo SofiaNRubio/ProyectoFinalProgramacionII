@@ -35,6 +35,9 @@ q<!DOCTYPE html>
         </div>
     </header>
     <body>
+        <div class="encabezado">
+            <h3>Agregar una prenda</h3>
+        </div>
         <form action="/process" method="POST">
             <label for="producto" class="palabras">Agregar una prenda: </label>
             <input type="text" id="producto" name="producto"><br>
@@ -54,10 +57,15 @@ q<!DOCTYPE html>
             <input type="text" id="colores" name="colores"><br>
             <input type="submit" value="Agregar" class="submit-button">
         </form>
-
+        <div class="editar">
+            <h3>Editar una prenda y/o su contenido</h3>
+        </div>
         <form action="/edit/<int:id>" method="POST">
             <input type="submit" value="Editar" class="button_editar">
         </form>
+        <div class="ver">
+            <h3>Ver el Stock disponible</h3>
+        </div>
         <form action="/mostrar" method='POST'>
             <input type="submit" value="Ver Stock" class="button-mostrar">
         </form>
@@ -88,6 +96,16 @@ q<!DOCTYPE html>
             </div>
         </div>
     </main>
+    <body>
+        <div class="eliminar">
+            <h3>Eliminar el producto por su id</h3>
+        </div>
+        <form action="/eliminar" method="POST">
+            <label for="id">ID del Producto a Eliminar:</label>
+            <input type="number" name="id" id="id" required>
+            <input type="submit" value="Eliminar" class="button-eliminar">
+        </form>
+    </body>
     <footer>
         <nav class="footer-nav">
             <ul>

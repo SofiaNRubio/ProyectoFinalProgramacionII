@@ -8,6 +8,26 @@ body {
     min-height: 100vh;
 }
 
+.encabezado {
+margin-left: 30px;
+font-family: 'Courier New', Courier, monospace, cursive;
+}
+
+.editar {
+    margin-left: 30px;
+    font-family: 'Courier New', Courier, monospace, cursive;
+}
+
+.ver {
+    margin-left: 30px;
+    font-family: 'Courier New', Courier, monospace, cursive;
+}
+
+.eliminar {
+    margin-left: 30px;
+    font-family: 'Courier New', Courier, monospace, cursive;
+}
+
 :root {
     --fuente-titulo: 'Pacifico', cursive;
     --fuente-principal: 'Krub', sans-serif;
@@ -222,7 +242,7 @@ label {
 }  
 
 .submit-button {  
-    background-color: lightgreen; /* Color del botón */  
+    background-color: rgb(120, 240, 120); /* Color del botón */  
     border: none;  
     padding: 10px 20px;  
     cursor: pointer;  
@@ -242,7 +262,7 @@ input[type="text"] {
 /* Estilo para el botón de enviar */
 input[type="submit"] {
     margin-left: 15px;
-    background-color: #6fca6f; /* Fondo verde claro */
+    /*background-color: #6fca6f;*/ /* Fondo verde claro */
     color: rgb(255, 255, 255);
     border: none;
     margin-top: 20px;
@@ -256,10 +276,19 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
     
-    background-color: #67fa67; /* Verde más oscuro al pasar el cursor */
+    background-color: #76f776; /* Verde más oscuro al pasar el cursor */
 }
 
 
+
 .button-mostrar {
-    background-color: orange;
+    background-color: rgb(104, 181, 233);
+}
+
+.button_editar {
+    background-color: #f0ae88;
+}
+
+.button-eliminar {
+    background-color: #fd564d;
 }
