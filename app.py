@@ -62,44 +62,34 @@ def process():
 @app.route("/edit/<int:id>", methods=["GET"])
 def edit(id):
     cursor = mydb.cursor(dictionary=True)
-    
-    # Consultar los datos actuales de la prenda según el ID
-    cursor.execute("SELECT * FROM Prenda WHERE id = %s", (id,))
-    prenda = cursor.fetchone()
+    # Consulta la prenda específica
+    cursor.execute("SELECT * FROM Stock WHERE id = %s", (id,))
+    producto = cursor.fetchone()
     cursor.close()
     
-    # Pasamos los datos al formulario para editarlos
-    return render_template('editar_formulario.html', prenda=prenda)
+    # Verifica si la prenda fue encontrada
+    if producto is None:
+        return "Producto no encontrado o no cargado correctamente.", 404
+    
+    # Renderiza el formulario de edición con los datos de la prenda
+    return render_template('index.html', producto=producto)
 
-# Ruta para procesar los cambios y actualizar la base de datos
-@app.route('/edit/<int:id>', methods=['POST'])
-def actualizar_prenda(id):
-    if request.method == 'POST':
-        # Recibe los datos modificados del formulario
-        producto = request.form['producto']
-        cantidad = request.form['cantidad']
-        precio = request.form['precio']
-        talle = request.form['talle']
-        colores = request.form['colores']
-        
-        # Actualizar la prenda en la base de datos
-        cursor = mydb.cursor()
-        sql_query_update = """
-            UPDATE Prenda 
-            SET producto = %s, cantidad = %s, precio = %s, talle = %s, colores = %s 
-            WHERE id = %s
-        """
-        values = (producto, cantidad, precio, talle, colores, id)
-        
-        # Ejecutar el comando SQL y actualizar los datos
-        cursor.execute(sql_query_update, values)
-        mydb.commit()
-        cursor.close()
+@app.route('/actualizar_producto/<int:id>', methods=['POST'])
+def actualizar_producto(id):
+    producto_nombre = request.form['producto']
+    cantidad_valor = request.form['cantidad']
+    precio_valor = request.form['precio']
+    talle_valor = request.form['talle'] 
+    color_nombre = request.form['colores']
 
-        # Redirige a una página de confirmación o lista de prendas
-        return "Prenda actualizada correctamente"  # También puedes usar redirect(url_for('otra_ruta'))
-            
+    sql = "UPDATE producto SET producto = %s, cantidad = %s, precio = %s, talle = %s, colores = %s WHERE id = %s"
+    datos = (id, producto_nombre, cantidad_valor, precio_valor, talle_valor, color_nombre)
+
+    cursor = mydb.cursor()
+    cursor.execute(sql, datos)
     mydb.commit()
+    return redirect(url_for('mostrar_stock'))
+    #mydb.commit()
 
 @app.route('/mostrar', methods=['GET', 'POST'])
 def mostrar_stock():

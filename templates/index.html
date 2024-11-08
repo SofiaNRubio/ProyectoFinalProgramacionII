@@ -1,4 +1,4 @@
-q<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <title>Easily-Store</title>
@@ -42,9 +42,9 @@ q<!DOCTYPE html>
             <label for="producto" class="palabras">Agregar una prenda: </label>
             <input type="text" id="producto" name="producto"><br>
             <label for="cantidad" class="palabras">Cantidad: </label>
-            <input type="int" id="cantidad" name="cantidad"><br>
+            <input type="number" id="cantidad" name="cantidad"><br>
             <label for="precio" class="palabras">Precio:$</label>
-            <input type="int" id="precio" name="precio"><br>
+            <input type="number" id="precio" name="precio"><br>
             <label for="talle" class="palabras">Talle:  </label>
             <select id="talle" name="talle">
                 <option value="S">S</option>
@@ -58,12 +58,43 @@ q<!DOCTYPE html>
             <input type="submit" value="Agregar" class="submit-button">
         </form>
         <div class="editar">
-            <h3>Editar una prenda y/o su contenido</h3>
+            <br>
+            <hr>
+            <p>Para editar una prenda y/o su contenido debe ver el stock y seleccionar 'editar'</p>
+            <hr>
         </div>
-        <form action="/edit/<int:id>" method="POST">
-            <input type="submit" value="Editar" class="button_editar">
+        {% if producto %}
+    <div class="editar">
+        <h3>Editar la prenda {{ producto['producto'] }}</h3>
+        <form action="{{ url_for('actualizar_producto', id=producto['id']) }}" method="POST">
+            <label for="producto">Producto:</label>
+            <input type="text" name="producto" id="producto" value="{{ producto['producto'] }}" required><br>
+
+            <label for="cantidad">Cantidad:</label>
+            <input type="number" name="cantidad" id="cantidad" value="{{ producto['cantidad'] }}" required><br>
+
+            <label for="precio">Precio:</label>
+            <input type="number" name="precio" id="precio" value="{{ producto['precio'] }}" required><br>
+
+            <label for="talle">Talle:</label>
+            <select id="talle" name="talle">
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+                <option value="XXL">XXL</option>
+            </select>
+
+            <label for="colores">Colores:</label>
+            <input type="text" name="colores" id="colores" value="{{ producto['colores'] }}" required><br>
+            <br>
+            <input type="submit" value="Guardar cambios" class="button-cambios">
         </form>
+    </div>
+{% endif %}
         <div class="ver">
+            <br>
+            <br>
             <h3>Ver el Stock disponible</h3>
         </div>
         <form action="/mostrar" method='POST'>
@@ -90,6 +121,9 @@ q<!DOCTYPE html>
                         <td>{{ prenda.talle }}</td>
                         <td>{{ prenda.colores }}</td>
                         <td>{{ prenda.precio }}</td>
+                        <td>
+                            <a href="{{ url_for('edit', id=prenda.id) }}" class="button-editar">Editar</a>
+                        </td>
                     </tr>
                     {% endfor %}
                 </table>                

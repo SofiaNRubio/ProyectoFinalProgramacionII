@@ -285,10 +285,18 @@ input[type="submit"]:hover {
     background-color: rgb(104, 181, 233);
 }
 
-.button_editar {
-    background-color: #f0ae88;
-}
-
 .button-eliminar {
     background-color: #fd564d;
+}
+
+.button-editar{
+    background-color: #f5c5a9;
+}
+
+.button-cambios{
+    background-color: #e09f62;
+}
+
+.editar {
+    margin-left: 5px;
 }
