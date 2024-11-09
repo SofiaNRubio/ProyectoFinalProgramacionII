@@ -10,22 +10,22 @@ body {
 
 .encabezado {
 margin-left: 30px;
-font-family: 'Courier New', Courier, monospace, cursive;
+font-family: var(--fuente-principal);
 }
 
 .editar {
     margin-left: 30px;
-    font-family: 'Courier New', Courier, monospace, cursive;
+    font-family: var(--fuente-principal);
 }
 
 .ver {
     margin-left: 30px;
-    font-family: 'Courier New', Courier, monospace, cursive;
+    font-family: var(--fuente-principal);
 }
 
 .eliminar {
     margin-left: 30px;
-    font-family: 'Courier New', Courier, monospace, cursive;
+    font-family: var(--fuente-principal);
 }
 
 :root {
@@ -122,7 +122,7 @@ h1 {
 }
 
 .palabras{
-    font-family: 'Courier New', Courier, monospace;
+    font-family: var(--fuente-principal);
 }
 
 .tabla {
@@ -159,7 +159,7 @@ table {
     margin: 10px;
     font-family: var(--fuente-principal);
     font-weight: 900;
-    background-color: #84b6f4;
+    background-color: #333;
     color: #FFF;
 }
 
@@ -172,7 +172,7 @@ table {
 }
 
 .btn_orange:hover {
-    background-color: #ffca99;
+    background-color: #f8a04e;
 }
 
 main {
@@ -214,7 +214,7 @@ footer p {
 }
 
 .fuente_Pacifico {
-    font-family: 'Pacifico', cursive;
+    font-family: var(--fuente-titulo);
 }
 
 .verde {
@@ -241,62 +241,19 @@ label {
     margin-top: 40px;
 }  
 
-.submit-button {  
-    background-color: rgb(120, 240, 120); /* Color del botón */  
-    border: none;  
-    padding: 10px 20px;  
-    cursor: pointer;  
-}  
-
-input[type="text"] {
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 20px;
-    padding: 8px;
-    font-size: 16px;
-    width: 80%; /* Ancho completo */
-    max-width: 200px; /* Máximo ancho del campo */
-    box-sizing: border-box; /* Para evitar desbordamientos */
-}
-
-/* Estilo para el botón de enviar */
-input[type="submit"] {
-    margin-left: 15px;
-    /*background-color: #6fca6f;*/ /* Fondo verde claro */
-    color: rgb(255, 255, 255);
-    border: none;
-    margin-top: 20px;
-    padding: 10px 10px;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    align-self: center;
-    font-family: 'Courier New', Courier, monospace;
-}
-
-input[type="submit"]:hover {
-    
-    background-color: #76f776; /* Verde más oscuro al pasar el cursor */
-}
-
-
-
-.button-mostrar {
-    background-color: rgb(104, 181, 233);
-}
-
-.button-eliminar {
-    background-color: #fd564d;
-}
-
-.button-editar{
-    background-color: #f5c5a9;
-}
-
-.button-cambios{
-    background-color: #e09f62;
-}
-
 .editar {
     margin-left: 5px;
+}
+@media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column;
+        text-align: center;
+    }
+    table {
+        font-size: 0.9em;
+        width: 100%;
+    }
+    .hero .content h1 {
+        font-size: 2em;
+    }
 }

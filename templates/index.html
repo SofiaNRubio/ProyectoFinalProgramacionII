@@ -34,7 +34,6 @@
             </div>
         </div>
     </header>
-    <body>
         <div class="encabezado">
             <h3>Agregar una prenda</h3>
         </div>
@@ -55,7 +54,7 @@
             </select>
             <label for="colores">Color/es:  </label>
             <input type="text" id="colores" name="colores"><br>
-            <input type="submit" value="Agregar" class="submit-button">
+            <input type="submit" value="Agregar" class="btn btn_green">
         </form>
         <div class="editar">
             <br>
@@ -98,9 +97,8 @@
             <h3>Ver el Stock disponible</h3>
         </div>
         <form action="/mostrar" method='POST'>
-            <input type="submit" value="Ver Stock" class="button-mostrar">
+            <input type="submit" value="Ver Stock" class="btn btn_orange">
         </form>
-    </body>
     <main>
         <div class="tabla">
             <div class="center-content">
@@ -122,7 +120,12 @@
                         <td>{{ prenda.colores }}</td>
                         <td>{{ prenda.precio }}</td>
                         <td>
-                            <a href="{{ url_for('edit', id=prenda.id) }}" class="button-editar">Editar</a>
+                            <a href="{{ url_for('edit', id=prenda.id) }}" class="button-editar">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(51, 51, 51, 1);transform: ;msFilter:;">
+                                    <path d="M8.707 19.707 18 10.414 13.586 6l-9.293 9.293a1.003 1.003 0 0 0-.263.464L3 21l5.242-1.03c.176-.044.337-.135.465-.263zM21 7.414a2 2 0 0 0 0-2.828L19.414 3a2 2 0 0 0-2.828 0L15 4.586 19.414 9 21 7.414z">
+                                    </path>
+                                </svg>
+                            </a>
                         </td>
                     </tr>
                     {% endfor %}
@@ -130,16 +133,19 @@
             </div>
         </div>
     </main>
-    <body>
         <div class="eliminar">
             <h3>Eliminar el producto por su id</h3>
         </div>
         <form action="/eliminar" method="POST">
             <label for="id">ID del Producto a Eliminar:</label>
             <input type="number" name="id" id="id" required>
-            <input type="submit" value="Eliminar" class="button-eliminar">
+            <button type="submit" class="btn btn_red">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(255, 255, 255, 1);">
+                    <path d="M6 7H5v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7H6zm4 12H8v-9h2v9zm6 0h-2v-9h2v9zm.618-15L15 2H9L7.382 4H3v2h18V4z"></path>
+                </svg>
+            </button>
         </form>
-    </body>
+        
     <footer>
         <nav class="footer-nav">
             <ul>
