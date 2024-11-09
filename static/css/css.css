@@ -73,6 +73,7 @@ h1 {
 }
 
 .navbar ul li a {
+    padding: 15px;
     color: white;
     text-decoration: none;
     font-weight: bold;
