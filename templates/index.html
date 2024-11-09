@@ -37,7 +37,7 @@
         <div class="encabezado">
             <h3>Agregar una prenda</h3>
         </div>
-        <form action="/process" method="POST">
+        <form class="center-content" action="/process" method="POST">
             <label for="producto" class="palabras">Agregar una prenda: </label>
             <input type="text" id="producto" name="producto"><br>
             <label for="cantidad" class="palabras">Cantidad: </label>
@@ -63,9 +63,9 @@
             <hr>
         </div>
         {% if producto %}
-    <div class="editar">
+    <div class="center-content">
         <h3>Editar la prenda {{ producto['producto'] }}</h3>
-        <form action="{{ url_for('actualizar_producto', id=producto['id']) }}" method="POST">
+        <form class="center-content" action="{{ url_for('actualizar_producto', id=producto['id']) }}" method="POST">
             <label for="producto">Producto:</label>
             <input type="text" name="producto" id="producto" value="{{ producto['producto'] }}" required><br>
 
@@ -87,17 +87,15 @@
             <label for="colores">Colores:</label>
             <input type="text" name="colores" id="colores" value="{{ producto['colores'] }}" required><br>
             <br>
-            <input type="submit" value="Guardar cambios" class="button-cambios">
+            <input type="submit" value="Guardar cambios" class="btn btn_green">
         </form>
     </div>
 {% endif %}
         <div class="ver">
-            <br>
-            <br>
             <h3>Ver el Stock disponible</h3>
+            <form action="/mostrar" method='POST'>
+                <input type="submit" value="Ver Stock" class="btn btn_orange">
         </div>
-        <form action="/mostrar" method='POST'>
-            <input type="submit" value="Ver Stock" class="btn btn_orange">
         </form>
     <main>
         <div class="tabla">
@@ -110,6 +108,7 @@
                         <th class="th">Talle</th>
                         <th class="th">Colores</th>
                         <th class="th">Precio</th>
+                        <th class="th"></th>
                     </tr>
                     {% for prenda in Stock %}
                     <tr class="datos">
@@ -118,7 +117,7 @@
                         <td>{{ prenda.cantidad }}</td>
                         <td>{{ prenda.talle }}</td>
                         <td>{{ prenda.colores }}</td>
-                        <td>{{ prenda.precio }}</td>
+                        <td>${{ prenda.precio }}</td>
                         <td>
                             <a href="{{ url_for('edit', id=prenda.id) }}" class="button-editar">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(51, 51, 51, 1);transform: ;msFilter:;">
@@ -138,7 +137,7 @@
         </div>
         <form action="/eliminar" method="POST">
             <label for="id">ID del Producto a Eliminar:</label>
-            <input type="number" name="id" id="id" required>
+            <input class="input" type="number" name="id" id="id" required>
             <button type="submit" class="btn btn_red">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(255, 255, 255, 1);">
                     <path d="M6 7H5v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7H6zm4 12H8v-9h2v9zm6 0h-2v-9h2v9zm.618-15L15 2H9L7.382 4H3v2h18V4z"></path>

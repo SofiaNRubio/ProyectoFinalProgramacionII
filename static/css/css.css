@@ -1,3 +1,4 @@
+/* Estilos generales */
 body {
     background-color: #cadffb;
     font-family: 'Krub', sans-serif;
@@ -8,22 +9,7 @@ body {
     min-height: 100vh;
 }
 
-.encabezado {
-margin-left: 30px;
-font-family: var(--fuente-principal);
-}
-
-.editar {
-    margin-left: 30px;
-    font-family: var(--fuente-principal);
-}
-
-.ver {
-    margin-left: 30px;
-    font-family: var(--fuente-principal);
-}
-
-.eliminar {
+.encabezado, .editar, .ver, .eliminar {
     margin-left: 30px;
     font-family: var(--fuente-principal);
 }
@@ -35,20 +21,17 @@ font-family: var(--fuente-principal);
     --verde-easily: #2e8b57;
 }
 
+/* Títulos */
 h1 {
     font-family: var(--fuente-titulo);
     font-size: 100px;
     color: var(--verde-easily);
 }
+
+/* Estilos de colores */
 .blanco {
     font-family: var(--fuente-titulo);
     color: #FFFFFF;
-}
-
-.center-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .navbar {
@@ -60,6 +43,7 @@ h1 {
     z-index: 1000;
 }
 
+/* Estilos del navbar */
 .navbar ul {
     display: flex;
     justify-content: center;
@@ -85,6 +69,7 @@ h1 {
     background-color: var(--verde-easily);
 }
 
+/* Hero Section */
 .hero {
     position: relative;
     height: 50vh;
@@ -122,10 +107,11 @@ h1 {
     font-size: 30px;
 }
 
-.palabras{
+.palabras {
     font-family: var(--fuente-principal);
 }
 
+/* Tabla */
 .tabla {
     margin: 50px;
     display: grid;
@@ -136,8 +122,9 @@ h1 {
 }
 
 .td, .th {
-    border: 1px solid black;
+    background-color: #333;
     padding: 10px;
+    color: #fff;
 }
 
 table {
@@ -145,13 +132,14 @@ table {
     border: 1px solid black;
 }
 
-.datos{
+.datos {
     font-size: 16px;
     justify-content: center;
     border: 1px solid #000;
     text-align: center;
 }
 
+/* Botones */
 .btn {
     border-radius: 5px;
     padding: 10px;
@@ -176,10 +164,12 @@ table {
     background-color: #f8a04e;
 }
 
+/* Estructura principal */
 main {
     flex-grow: 1;
 }
 
+/* Footer */
 footer {
     background-color: #333;
     color: white;
@@ -193,6 +183,7 @@ footer p {
     font-weight: bold;
 }
 
+/* Estilo para enlaces del footer */
 .footer-nav ul {
     list-style-type: none;
     padding: 0;
@@ -214,6 +205,34 @@ footer p {
     text-decoration: underline;
 }
 
+/* Formulario */
+form {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+}
+
+.center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+label {
+    display: block;
+    margin-bottom: 20px;
+    margin-left: 40px;
+    margin-top: 40px;
+}
+
+/* Fuentes personalizadas */
 .fuente_Pacifico {
     font-family: var(--fuente-titulo);
 }
@@ -226,35 +245,108 @@ footer p {
     color: var(--lila-easily);
 }
 
-
-
-form {  
-    display: flex; /* Usar flexbox en el formulario para alinear elementos */  
-    align-items: center; /* Alinear verticalmente al centro */  
-    margin-left: 15px; /* Espacio desde el margen izquierdo del formulario */  
-}  
-
-
-label {  
-    display: block; /* Hace que la etiqueta ocupe toda la línea */  
-    margin-bottom: 20px; /* Espacio debajo de la etiqueta */  
-    margin-left: 40px; /* Espacio desde el margen izquierdo */  
-    margin-top: 40px;
-}  
-
-.editar {
-    margin-left: 5px;
-}
-@media (max-width: 768px) {
+/* Media Queries (Diseño responsive) */
+@media (max-width: 1024px) {
+    /* Navbar en pantallas pequeñas */
     .navbar ul {
         flex-direction: column;
         text-align: center;
     }
+
+    /* Ajuste en la tabla */
     table {
         font-size: 0.9em;
         width: 100%;
     }
+
+    /* Hero */
     .hero .content h1 {
-        font-size: 2em;
+        font-size: 2.5em;
+    }
+
+    /* Ajustes para los botones */
+    .btn {
+        width: 100%;
+        padding: 15px;
+    }
+
+    /* Center content layout */
+    .center-content {
+        flex-direction: column;
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    /* Etiquetas en formulario */
+    label {
+        margin-left: 0;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Hero */
+    .hero {
+        height: 60vh;
+    }
+
+    /* Título */
+    h1 {
+        font-size: 3em;
+    }
+
+    /* Navbar */
+    .navbar ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    /* Botones */
+    .btn {
+        width: 100%;
+        padding: 12px;
+    }
+
+    /* Centro de contenido */
+    .center-content {
+        flex-direction: column;
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    /* Ajustes de etiquetas en formulario */
+    label {
+        margin-left: 0;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Hero */
+    .hero .content h1 {
+        font-size: 1.8em;
+    }
+
+    /* Navbar */
+    .navbar ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    /* Ajustes en la tabla */
+    table {
+        font-size: 0.8em;
+        width: 100%;
+    }
+
+    /* Botones */
+    .btn {
+        width: 100%;
+        padding: 10px;
+    }
+
+    /* Pie de página */
+    footer p {
+        font-size: 0.9em;
     }
 }
