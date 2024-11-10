@@ -5,7 +5,7 @@ import app
 mydb = mysql.connector.connect(
 host="localhost",
 user="juli",
-password="S0f1anrub10.", # Cambiar por tu contraseña
+password="45875403", # Cambiar por tu contraseña
 database="easily_store" # Nombre de la base de datos
 )
 
