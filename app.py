@@ -55,7 +55,7 @@ def process():
         # Confirmar cambios en la base de datos
         mydb.commit()
 
-        return f"La prenda agregada es: {producto}, {cantidad}, {precio}, {talle}, {colores}"
+        return redirect(url_for('mostrar_stock'))
     else:
         return "No se ha proporcionado ninguna prenda..."
 
